@@ -63,3 +63,18 @@ databases:
     # setting the `diskSizeGB` property.
     #
     # diskSizeGB: 5
+    services:
+  - type: web
+    name: n8n-service
+    plan: free
+    runtime: image
+    image:
+      url: docker.io/n8nio/n8n:1.83.2
+    envVars:
+      - key: N8N_PORT
+        value: 10000
+      - key: N8N_ENCRYPTION_KEY
+        generateValue: true
+      - key: WEBHOOK_URL
+        value: https://n8n-charliliu581.onrender.com/
+
